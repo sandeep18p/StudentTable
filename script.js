@@ -19,30 +19,25 @@ function populateTable(students) {
     const table = document.getElementById('studentTable');
     table.innerHTML="";
     students.forEach(student => {
-        const row = table.insertRow();
-        const id_ = row.insertCell();
-        const imageCell = row.insertCell();
-       
-        const gender = row.insertCell();
-        const classCell = row.insertCell();
-        const marksCell = row.insertCell();
-        const passingCell = row.insertCell();
-    
-        const emailCell = row.insertCell();
-       
-        id_.innerHTML=student.id;
-        imageCell.innerHTML = `<div class="jira"><img src="${student.img_src}" alt="${student.first_name} ${student.last_name}"> <div> ${student.first_name} ${student.last_name} </div></div>`;
-        gender.textContent=student.gender
-        classCell.textContent = student.class;
-        marksCell.textContent = student.marks;
-        passingCell.textContent = student.passing ? 'Pass' : 'Failed';
-        emailCell.textContent = student.email;
-        
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+        <td data-cell-type="ID">${student.id}</td>
+        <td data-cell-type="Image & Name">
+            <div class="jira">
+                <img src="${student.img_src}" alt="${student.first_name} ${student.last_name}">
+                <div>${student.first_name} ${student.last_name}</div>
+            </div>
+        </td>
+        <td data-cell-type="Gender">${student.gender}</td>
+        <td data-cell-type="Class">${student.class}</td>
+        <td data-cell-type="Marks">${student.marks}</td>
+        <td data-cell-type="Passing">${student.passing ? 'Pass' : 'Failed'}</td>
+        <td data-cell-type="Email">${student.email}</td>`;
+        table.appendChild(newRow);
     });
 }
 function populateTable2(students) {
     const table = document.getElementById('studentTable');
-   
     students.forEach(student => {
         const row = table.insertRow();
         const id_ = row.insertCell();

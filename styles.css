@@ -164,6 +164,46 @@ img{
        padding-top: 5px;
        padding-bottom: 5px;
       
+    } }
+
+    @media only screen and (max-width: 625px) { 
+       table thead tr{
+        display: none;
+       }
+
+       table tr{
+        display: block;
+       }
+       table th, table td{
+        padding: .5em;
+       }
+
+       table td{
+        text-align: right;
+        display: block;
+        font-size: 1em;
+       }
+
+       .jira{
+       display: block;
+       text-align: right;
+       }
+      
+
+       #studentTable td::before {
+        content: attr(data-cell-type);
+        float: left;
+        
+        margin-right: auto;
+        font-weight: bold;
+    }
+    
+    button{
+        font-size: 10px;
     }
     
 }
+  
+
+    
+    
